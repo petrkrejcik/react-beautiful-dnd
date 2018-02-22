@@ -9,8 +9,8 @@ node_modules/
 .DS_Store
 
 # generated files
-lib/
 dist/
+package-lock.json
 
 # generated site
 site/
