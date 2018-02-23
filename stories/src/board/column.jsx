@@ -33,6 +33,12 @@ const Header = styled.div`
   }
 `;
 
+// NEW CONTAINER
+const ColumnContainer = styled.div`
+height: 400px;
+overflow-y: auto;
+`;
+
 type Props = {|
   title: string,
   quotes: Quote[],
@@ -61,12 +67,14 @@ export default class Column extends Component<Props> {
                   {title}
                 </Title>
               </Header>
-              <QuoteList
-                listId={title}
-                listType="QUOTE"
-                quotes={quotes}
-                autoFocusQuoteId={this.props.autoFocusQuoteId}
-              />
+              <ColumnContainer>
+                <QuoteList
+                  listId={title}
+                  listType="QUOTE"
+                  quotes={quotes}
+                  autoFocusQuoteId={this.props.autoFocusQuoteId}
+                />
+              </ColumnContainer>
             </Container>
             {provided.placeholder}
           </Wrapper>

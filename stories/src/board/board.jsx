@@ -24,11 +24,17 @@ const ParentContainer = styled.div`
 `;
 
 const Container = styled.div`
-  min-height: 100vh;
+  
 
   /* like display:flex but will allow bleeding over the window width */
   min-width: 100vw;
   display: inline-flex;
+`;
+
+// NEW CONTAINER
+const ScrollContainer = styled.div`
+  width: 800px;
+  overflow-x: auto;
 `;
 
 type Props = {|
@@ -113,26 +119,28 @@ export default class Board extends Component<Props, State> {
     const { containerHeight } = this.props;
 
     const board = (
-      <Droppable
-        droppableId="board"
-        type="COLUMN"
-        direction="horizontal"
-        ignoreContainerClipping={Boolean(containerHeight)}
-      >
-        {(provided: DroppableProvided) => (
-          <Container innerRef={provided.innerRef} {...provided.droppableProps}>
-            {ordered.map((key: string, index: number) => (
-              <Column
-                key={key}
-                index={index}
-                title={key}
-                quotes={columns[key]}
-                autoFocusQuoteId={this.state.autoFocusQuoteId}
-              />
-            ))}
-          </Container>
-        )}
-      </Droppable>
+      <ScrollContainer>
+        <Droppable
+          droppableId="board"
+          type="COLUMN"
+          direction="horizontal"
+          ignoreContainerClipping={Boolean(containerHeight)}
+        >
+          {(provided: DroppableProvided) => (
+            <Container innerRef={provided.innerRef} {...provided.droppableProps}>
+              {ordered.map((key: string, index: number) => (
+                <Column
+                  key={key}
+                  index={index}
+                  title={key}
+                  quotes={columns[key]}
+                  autoFocusQuoteId={this.state.autoFocusQuoteId}
+                />
+              ))}
+            </Container>
+          )}
+        </Droppable>
+      </ScrollContainer>
     );
 
     return (
