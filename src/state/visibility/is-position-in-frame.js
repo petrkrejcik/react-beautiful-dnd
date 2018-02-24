@@ -6,7 +6,7 @@ import type {
 } from '../../types';
 
 export default (frame: Spacing) => {
-  const isWithinVertical = isWithin(frame.top, frame.bottom);
+  const isWithinVertical = isWithin(frame.top - 200, frame.bottom + 200);
   const isWithinHorizontal = isWithin(frame.left, frame.right);
 
   return (point: Position) =>
