@@ -96,7 +96,7 @@ export default class DragDropContext extends React.Component<Props> {
   // This is useful when the user
   canLift = (id: DraggableId) => canStartDrag(this.store.getState(), id);
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.store = createStore();
 
     this.announcer = createAnnouncer();
