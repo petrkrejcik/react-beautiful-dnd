@@ -85,7 +85,7 @@ export default class DragHandle extends Component<Props> {
     });
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     const isCapturing: boolean = this.isAnySensorCapturing();
 
     if (!isCapturing) {

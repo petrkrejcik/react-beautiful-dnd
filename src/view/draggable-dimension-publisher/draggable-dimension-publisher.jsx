@@ -33,7 +33,7 @@ export default class DraggableDimensionPublisher extends Component<Props> {
 
   publishedDescriptor: ?DraggableDescriptor = null
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     const { draggableId, droppableId, index, targetRef } = nextProps;
 
     if (!targetRef) {

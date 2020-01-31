@@ -158,7 +158,7 @@ export default class DroppableDimensionPublisher extends Component<Props> {
     this.closestScrollable.removeEventListener('scroll', this.onClosestScroll);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     if (!nextProps.targetRef) {
       console.error('Cannot update droppable dimension publisher without a target ref');
       return;
